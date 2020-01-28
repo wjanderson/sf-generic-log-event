@@ -1,6 +1,6 @@
-# Salesforce App
+# Salesforce Genric Event Logger  
 
-This guide helps Salesforce developers who are new to Visual Studio Code go from zero to a deployed app using Salesforce Extensions for VS Code and Salesforce CLI.
+This is a work in progress!
 
 ## Part 1: Choosing a Development Model
 
