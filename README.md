@@ -1,4 +1,4 @@
-# Salesforce Genric Event Logger  
+# Salesforce Generic Event Logger  
 
 This is a work in progress!
 
