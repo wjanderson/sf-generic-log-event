@@ -6,6 +6,19 @@ Goal is to use a generic platform event that can handle any type of information 
 
 ![Generic flow](https://github.com/bjanderson70/sf-generic-log-event/blob/master/img/generic-logger.jpg)
 
+|Parts                         |  Concrete Class
+|------------------------------|-------------------------------------|
+|Read Salesforce Custom Metadata |	accc_LogEventMetadataModel |
+|Read the Metadata that describes the Data pulled from the Sobject list.|	accc_MetadataDefaultReader |
+|Output (Json) Generator|	accc_PayLoadGeneratorJSON |
+|Data Handler, processes the collection of SObjects using both the  |accc_MetadataDefaultReader and accc_ PayLoadGeneratorJSON	| accc_MetaDataHandler|
+|Builder, accc_MetadataBuilder builds the above parts using the Salesforce Custom Metatdata |	accc_MetadataBuilder|
+|Metadata Manager, accc_MetaDataManager, orchestrates all the above parts |	accc_MetaDataManager|
+|Metadata Service, accc_MetaDataService, uses the metadata Manager to bring all the components together, and processes the incoming Sobject collection ( asynchronously or synchronously via accc_MetadataLogEventChunked  ). It is considered the service/business layer.|	accc_ MetaDataLogEntryService|
+|Chunking of Sobject collections for handling. The underlying function allows a larger number of SObjects to be processed (i.e. creating and sending Log Events). However, it is not without additional limitations as well.| 	accc_MetadataLogEventChunked |
+|The processor, accc_MetadataEventProcessor, performs work synchronously. The behavior is controlled by the custom metadata and used by the Chunker and Service. If data is NOT chunked, the Chunker invokes the processor; otherwise, it utilizes a queueable object passing in the processor along with the chunk SObjects,|	accc_MetadataEventProcessor|
+
+
 ## Part 1: Choosing a Development Model
 
 There are two types of developer processes or models supported in Salesforce Extensions for VS Code and Salesforce CLI. These models are explained below. Each model offers pros and cons and is fully supported.
