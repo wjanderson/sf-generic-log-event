@@ -1,6 +1,6 @@
 # Salesforce Generic Event Logger  
 
-This is a work in progress!
+This is a work in progress! The process has been proven out. In the process (when I get time) to place in a unlock package.
 
 Goal is to use a generic platform event that can handle any type of information of the users choosing. This way you can listen for one event and dispatch based on the **method** or **action**.
 
