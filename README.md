@@ -1,6 +1,6 @@
 # Salesforce Generic Event Logger  
 
-This is a work in progress!
+This is a work in progress! The process has been proven out. In the process (when I get time) to place in a unlock package. The document can be found  [Generic Event - PDF ](https://github.com/bjanderson70/sf-generic-log-event/blob/master/Design%20of%20Generic%20Log%20Entry%20via%20Platform%20Events.pdf)
 
 Goal is to use a generic platform event that can handle any type of information of the users choosing. This way you can listen for one event and dispatch based on the **method** or **action**.
 
